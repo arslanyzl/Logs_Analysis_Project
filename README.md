@@ -8,21 +8,19 @@ into the report.
 
 ### How to Run?
 
-#### PreRequisites:
+#### Required programs:
   * [Python3](https://www.python.org/)
   * [Vagrant](https://www.vagrantup.com/)
   * [VirtualBox](https://www.virtualbox.org/)
 
-#### Setup Project:
-  1. Install Vagrant and VirtualBox
-  2. Download or Clone [fullstack-nanodegree-vm](https://github.com/udacity/fullstack-nanodegree-vm) repository.
-  3. Download the [data](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) from here.
-  4. Unzip this file after downloading it. The file inside is called newsdata.sql.
-  5. Copy the newsdata.sql file and content of this current repository, by either downloading or cloning it from
-  [Here](https://github.com/sagarchoudhary96/Log-Analysis)
+#### Setup:
+  1. Download [fullstack-nanodegree-vm](https://github.com/udacity/fullstack-nanodegree-vm) repository.
+  2. Download the [data](https://d17h27t6h515a5.cloudfront.net/topher/2016/August/57b5f748_newsdata/newsdata.zip) here.
+  3. Unzip data file after downloading it.
+  4. Move downloaded newsdata.sql file to 1. downloaded - ```fullstack-nanodegree-vm/vagrant```
   
-#### Launching the Virtual Machine:
-  1. Launch the Vagrant VM inside Vagrant sub-directory in the downloaded fullstack-nanodegree-vm repository using command:
+#### Runing:
+  1. In the downloaded fullstack-nanodegree-vm repository run this in terminal:
   
   ```
     $ vagrant up
@@ -32,5 +30,15 @@ into the report.
   ```
     $ vagrant ssh
   ```
-  3. Change directory to /vagrant and look around with ls.
+  3. Change directory to /vagrant.
   
+  4. To load the data, use the command 
+  ```
+    psql -d news -f newsdata.sql
+  ```
+  5. Download ```news-reporting``` file and move to ```fullstack-nanodegree-vm/vagrant```. Run this in termal by:
+  ```
+    python3 news-reporting.py
+  ```
+  
+ 
