@@ -32,7 +32,7 @@ into the report.
   ```
   3. Change directory to /vagrant.
   
-  4. To load the data, use the command 
+  4. To load the data, use the command in terminal
   ```
     psql -d news -f newsdata.sql
   ```
