@@ -41,11 +41,16 @@ into the report.
   psql news
   ```
   ```
-  create view error_request as select time::date as date, count(*) as views from log where status like '%404%' group by date order by date desc;
+  create view error_request as select time::date as date, count(*) as 
+  views from log where status like '%404%' group by date order by date desc;
+  ```
+  ```
+  create view total_request as select time::date as date, count(*) as 
+  views log group by date order by date desc;
   ```
   6. Download ```news-reporting``` file and move to ```fullstack-nanodegree-vm/vagrant```. Run this in termal by:
   ```
-    python3 news-reporting.py
+    python news-reporting.py
   ```
   
  
