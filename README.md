@@ -9,9 +9,9 @@ into the report.
 ### How to Run?
 
 #### Required programs:
-  * [Python3](https://www.python.org/)
-  * [Vagrant](https://www.vagrantup.com/)
-  * [VirtualBox](https://www.virtualbox.org/)
+  * Python3
+  * Vagrant
+  * VirtualBox
 
 #### Setup:
   1. Download [fullstack-nanodegree-vm](https://github.com/udacity/fullstack-nanodegree-vm) repository.
@@ -36,7 +36,14 @@ into the report.
   ```
     psql -d news -f newsdata.sql
   ```
-  5. Download ```news-reporting``` file and move to ```fullstack-nanodegree-vm/vagrant```. Run this in termal by:
+  5. Create new table to simplyfy question 3. Type the command in terminal
+  ```
+  psql news
+  ```
+  ```
+  create view error_request as select time::date as date, count(*) as views from log where status like '%404%' group by date order by date desc;
+  ```
+  6. Download ```news-reporting``` file and move to ```fullstack-nanodegree-vm/vagrant```. Run this in termal by:
   ```
     python3 news-reporting.py
   ```
