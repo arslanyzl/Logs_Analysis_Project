@@ -46,11 +46,9 @@ into the report.
   ```
   ```
   create view total_request as select time::date as date, count(*) as
-  views log group by date order by date desc;
+  views from log group by date order by date desc;
   ```
   6. Download ```news-reporting``` file and move to ```fullstack-nanodegree-vm/vagrant```. Run this in termal by:
   ```
     python news-reporting.py
   ```
-
-
