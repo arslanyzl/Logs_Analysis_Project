@@ -1,0 +1,18 @@
+vagrant@vagrant:/vagrant$ python news-reporting.py 
+
+I. Three most popular articles all time:
+
+  1. Candidate is jerk, alleges rival - 338647 views
+  2. Bears love berries, alleges bear - 253801 views
+  3. Bad things gone, say good people - 170098 views
+
+II. Most popular authors of articles all time:
+
+  1. Ursula La Multa - 507594 views
+  2. Rudolf von Treppenwitz - 423457 views
+  3. Anonymous Contributor - 170098 views
+  4. Markoff Chaney - 84557 views
+
+III. Most error occurred day all time:
+
+  July 17, 2016 -  2.26 % errors
