@@ -1,5 +1,6 @@
+#!/usr/bin/env python3
+
 import psycopg2
-import datetime
 
 DB_NAME = "news"
 
@@ -19,11 +20,10 @@ pop_author = (
 
 error_request = (
     "select error_request.date, "
-    "(sum(error_request.views) * 100.0 /sum(total_request.views)) as error "
+    "error_request.views * 100.0 / total_request.views as error "
     "from total_request join error_request on "
     "total_request.date=error_request.date "
-    "group by error_request.date "
-    "having (sum(error_request.views) * 100.0 /sum(total_request.views))>1.00")
+    "where error_request.views * 100.0 / total_request.views >1.00")
 
 
 def connect_result(query):
@@ -39,19 +39,21 @@ def connect_result(query):
 def print_article(analys):
     print ("\nI. Three most popular articles all time:\n")
     for i in range(len(analys)):
-        print ("  " + str(i+1) + ". " + analys[i][0] + " - " + str(analys[i][1]) + " views")
+        print ("  " + str(i+1) + ". " + analys[i][0] +
+               " - " + str(analys[i][1]) + " views")
 
 
 def print_author(analys):
     print ("\nII. Most popular authors of articles all time:\n")
     for i in range(len(analys)):
-        print ("  " + str(i+1) + ". " + analys[i][0] + " - " + str(analys[i][1]) + " views")
+        print ("  " + str(i+1) + ". " + analys[i][0] +
+               " - " + str(analys[i][1]) + " views")
 
 
 def print_error(analys):
     print ("\nIII. Most error occurred day all time:\n")
     for i in analys:
-        print "  " + i[0].strftime('%B %d, %Y') + " - ", round(i[1], 2), "% errors"
+        print "  " + str(i[0]) + " - ", round(i[1], 2), "% errors"
 
 print_article(connect_result(pop_article))
 print_author(connect_result(pop_author))
